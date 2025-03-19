@@ -38,11 +38,14 @@ def convert_letter_pool_to_list(letter_pool):
 def draw_letters():
     draw_letters_list = convert_letter_pool_to_list(LETTER_POOL)
     result_letters = []
-    for i in range(10):
+    #for i in range(10):
+    counter = 0
+    while counter < 10:
         index = randint(0, len(draw_letters_list) - 1)  
         letter = draw_letters_list[index]  
         result_letters.append(letter)
         draw_letters_list.pop(index)
+        counter += 1
 
     return result_letters
 
@@ -164,7 +167,7 @@ def get_highest_word_score(word_list):
     for word in tie_with_max_score:   # word = ["ApplW": 7]
         #unless one word has 10 letters. If the top score is tied between multiple words and one is 10 letters long, choose the one with 10 letters over the one with fewer tiles
         if len(word[0]) >= 10:
-            return word
+            return tuple(word)
 
 #If the there are multiple words that are the same score and the same length, pick the first one in the supplied list
     max_word_len = len(tie_with_max_score[0][0])
@@ -173,7 +176,7 @@ def get_highest_word_score(word_list):
         if max_word_len != len(word[0]):
             is_all_word_has_same_leght = False 
     if is_all_word_has_same_leght:
-        return tie_with_max_score[0]
+        return tuple(tie_with_max_score[0])
         
 # prefer the word with the fewest letters...
     min_word_len = len(tie_with_max_score[0][0])
@@ -184,7 +187,7 @@ def get_highest_word_score(word_list):
             min_word_len = len(word[0])
             min_word_score = list(word)
     print(min_word_score)
-    return min_word_score
+    return tuple(min_word_score)
 
 
 
