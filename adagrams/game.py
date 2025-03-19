@@ -57,10 +57,11 @@ def uses_available_letters(word, letter_bank):
     for char_set in word:
         if char_set not in letter_bank_copy:
             return False
+        letter_bank_copy.remove(char_set)
         #for index, found_letter in letter_bank:
-        for index in range(0,len(letter_bank_copy) -1):
-            if letter_bank_copy[index] == char_set:
-                letter_bank_copy.pop(index) 
+        #for index in range(0,len(letter_bank_copy) -1): #don't use range
+        #    if letter_bank_copy[index] == char_set:
+        #        letter_bank_copy.pop(index) #remove
 
     return True
 
@@ -119,7 +120,7 @@ def score_word(word):
 def get_highest_word_score(word_list):
     total_word_score = []
     max_score = 0
-    hight_word_score = []
+    #hight_word_score = []
     tie_with_max_score = []
     # get each word from word_list  
     for word in word_list:
