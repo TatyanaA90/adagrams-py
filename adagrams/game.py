@@ -30,9 +30,9 @@ LETTER_POOL = {
 
 def convert_letter_pool_to_list(letter_pool):
     letters_list =[]
+    
     for letter, count in letter_pool.items():
-        for i in letter * count:
-            letters_list.append(i)
+            letters_list.append(list(letter) * count)
     return letters_list
 
 def draw_letters():
