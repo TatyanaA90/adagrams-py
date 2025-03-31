@@ -41,9 +41,8 @@ def draw_letters():
     counter = 0
     while counter < 10:
         index = randint(0, len(draw_letters_list) - 1)  
-        letter = draw_letters_list[index]  
+        letter = draw_letters_list.pop(index)
         result_letters.append(letter)
-        draw_letters_list.pop(index)
         counter += 1
 
     return result_letters
